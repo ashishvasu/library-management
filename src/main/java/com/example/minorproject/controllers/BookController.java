@@ -6,17 +6,17 @@ import com.example.minorproject.services.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/book")
-@RequiredArgsConstructor
 public class BookController {
     @Autowired
-    private final BookService bookService;
+    private BookService bookService;
     @PostMapping(value = "/create")
-    public Book createBook(BookRequest bookRequest){
+    public Book createBook(@RequestBody BookRequest bookRequest){
         return bookService.createBook(bookRequest);
     }
 }

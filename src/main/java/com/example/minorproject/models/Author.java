@@ -21,6 +21,9 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String dob;
+    @Column(unique = true, nullable = false)
+    private String email;
     @OneToMany(mappedBy = "author")
     private List<Book> bookList;
     @CreationTimestamp
